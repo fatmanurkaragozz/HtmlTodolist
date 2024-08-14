@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="elma">
+    <meta name="description" content="Elmanin faydalari sunlardir:">
+
+    <title>ToDoList</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: #4c93af;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            border-radius: 10%;
+        }
+
+        .icon-box i {
+            color: white;
+            font-size: 24px;
+        }
+
+        .divOzellik {
+            width: 70%;
+            height: 180px;
+            background-color: rgb(238, 240, 242);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .input-container {
+            width: 84%;
+            position: relative;
+        }
+
+        .input-container input[type="text"] {
+            width: 100%;
+            height: 40px;
+            font-size: 18px;
+            padding: 10px 10px 10px 40px;
+            border: 1px solid #2896b8;
+            border-radius: 4%;
+            box-sizing: border-box;
+        }
+
+        .input-container .icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #ccc;
+        }
+
+
+        .divOzellik input[type="text"] {
+            width: 85%;
+            height: 40px;
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4%;
+        }
+
+        .divOzellik button {
+            width: 75%;
+            height: 45px;
+            font-size: 18px;
+            background-color: #4c93af;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .divOzellik button:hover {
+            background-color: #45a049;
+        }
+
+        .divOzellik2 button {
+            width: 18%;
+            height: 30px;
+            font-size: 18px;
+            background-color: #4c93af;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 0 30px;
+            /* Butonlar arasındaki boşluk */
+        }
+
+        .divOzellik3 {
+            width: 70%;
+            height: auto;
+            background-color: rgb(238, 240, 242);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .divOzellik3 input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .divOzellik3 .task-container {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .divOzellik3 .task-container span {
+            margin-right: 10px;
+        }
+
+        .divOzellik3 .edit-icon,
+        .divOzellik3 .delete-icon {
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .divOzellik3 .edit-icon {
+            color: gold;
+        }
+
+        .divOzellik3 .delete-icon {
+            color: #c23232;
+        }
+
+        .divOzellik4 button {
+            width: 32%;
+            height: 30px;
+            font-size: 18px;
+            background-color: #c23232;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 0 20px;
+            /* Butonlar arasındaki boşluk */
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <center>
+        <h2>TodoInput</h2>
+    </center>
+
+    <center>
+        <div class="divOzellik">
+            <div class="input-container">
+                <i class="fas fa-book icon"></i>
+                <input type="text" id="todo-input" placeholder="New Todo" />
+            </div>
+            <button id="add-task" type="button">Add new task</button>
+        </div>
+
+        <h2>ToDoList</h2>
+        <div class="divOzellik2">
+            <button id="filter-all">All</button>
+            <button id="filter-done">Done</button>
+            <button id="filter-todo">Todo</button>
+        </div>
+
+        <br>
+        <div id="task-list">
+            <div class="divOzellik3">
+                <div class="task-container">
+                    <span>Learn ReactJS basics</span>
+                </div>
+                <input type="checkbox">
+                <i class="fas fa-pencil-alt edit-icon"></i>
+                <i class="fas fa-trash delete-icon"></i>
+            </div>
+            <br>
+
+            <div class="divOzellik3">
+                <div class="task-container">
+                    <span>Practice ReactJS</span>
+                </div>
+                <input type="checkbox">
+                <i class="fas fa-pencil-alt edit-icon"></i>
+                <i class="fas fa-trash delete-icon"></i>
+            </div>
+            <br>
+
+            <div class="divOzellik3">
+                <div class="task-container">
+                    <span>Learn Redux</span>
+                </div>
+                <input type="checkbox">
+                <i class="fas fa-pencil-alt edit-icon"></i>
+                <i class="fas fa-trash delete-icon"></i>
+            </div>
+            <br>
+
+            <div class="divOzellik3">
+                <div class="task-container">
+                    <span>Code portfolio in React</span>
+                </div>
+                <input type="checkbox">
+                <i class="fas fa-pencil-alt edit-icon"></i>
+                <i class="fas fa-trash delete-icon"></i>
+            </div>
+            <br>
+
+            <div class="divOzellik3">
+                <div class="task-container">
+                    <span>Learn React Native</span>
+                </div>
+                <input type="checkbox">
+                <i class="fas fa-pencil-alt edit-icon"></i>
+                <i class="fas fa-trash delete-icon"></i>
+            </div>
+        </div>
+        <br>
+
+        <div class="divOzellik4">
+            <button id="delete-done-tasks">Delete done tasks</button>
+            <button id="delete-all-tasks">Delete all tasks</button>
+        </div>
+
+        <script>
+            // DOM Elemanlarını Seç
+            const addTaskButton = document.getElementById('add-task');
+            const todoInput = document.getElementById('todo-input');
+            const taskList = document.getElementById('task-list');
+            const deleteDoneTasksButton = document.getElementById('delete-done-tasks');
+            const deleteAllTasksButton = document.getElementById('delete-all-tasks');
+            const filterAllButton = document.getElementById('filter-all');
+            const filterDoneButton = document.getElementById('filter-done');
+            const filterTodoButton = document.getElementById('filter-todo');
+    
+            // Görev Ekle
+            addTaskButton.addEventListener('click', (event) => {
+                event.preventDefault();
+    
+                const taskDiv = document.createElement('div');
+                taskDiv.className = 'divOzellik3';
+    
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+    
+                const taskContainer = document.createElement('div');
+                taskContainer.className = 'task-container';
+                
+                const span = document.createElement('span');
+                span.textContent = taskText;
+                taskContainer.appendChild(span);
+    
+                const editIcon = document.createElement('i');
+                editIcon.className = 'fas fa-pencil-alt edit-icon';
+                editIcon.addEventListener('click', () => {
+                    const newTaskText = prompt('Edit Task:', span.textContent);
+                    if (newTaskText !== null) {
+                        span.textContent = newTaskText;
+                    }
+                });
+    
+                const deleteIcon = document.createElement('i');
+                deleteIcon.className = 'fas fa-trash delete-icon';
+                deleteIcon.addEventListener('click', () => {
+                    taskList.removeChild(taskDiv);
+                });
+    
+                taskDiv.appendChild(checkbox);
+                taskDiv.appendChild(taskContainer);
+                taskDiv.appendChild(editIcon);
+                taskDiv.appendChild(deleteIcon);
+    
+                taskList.appendChild(taskDiv);
+                todoInput.value = '';
+            });
+    
+            // Tamamlanan Görevleri Sil
+            deleteDoneTasksButton.addEventListener('click', () => {
+                const tasks = taskList.querySelectorAll('.divOzellik3');
+                tasks.forEach(task => {
+                    const checkbox = task.querySelector('input[type="checkbox"]');
+                    if (checkbox.checked) {
+                        taskList.removeChild(task);
+                    }
+                });
+            });
+    
+            // Tüm Görevleri Sil
+            deleteAllTasksButton.addEventListener('click', () => {
+                taskList.innerHTML = '';
+            });
+    
+            // Filtreleme
+            filterAllButton.addEventListener('click', () => {
+                const tasks = taskList.querySelectorAll('.divOzellik3');
+                tasks.forEach(task => {
+                    task.style.display = 'flex';
+                });
+            });
+    
+            filterDoneButton.addEventListener('click', () => {
+                const tasks = taskList.querySelectorAll('.divOzellik3');
+                tasks.forEach(task => {
+                    const checkbox = task.querySelector('input[type="checkbox"]');
+                    if (checkbox.checked) {
+                        task.style.display = 'flex';
+                    } else {
+                        task.style.display = 'none';
+                    }
+                });
+            });
+    
+            filterTodoButton.addEventListener('click', () => {
+                const tasks = taskList.querySelectorAll('.divOzellik3');
+                tasks.forEach(task => {
+                    const checkbox = task.querySelector('input[type="checkbox"]');
+                    if (checkbox.checked) {
+                        task.style.display = 'none';
+                    } else {
+                        task.style.display = 'flex';
+                    }
+                });
+            });
+
+        </script>
+    </center>
+
+</body>
+</html>
